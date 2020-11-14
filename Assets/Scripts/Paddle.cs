@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class Paddle : MonoBehaviour
 {
-    private Vector3 _mouseWorldPosition;
+    private float _mouseWorldPosition;
+    private float _mousePosition;
+
+    private float _clampLeft;
+    private float _clampRight;
+
 
     // Start is called before the first frame update
     void Start()
     {
-
+        _clampLeft = -6.05f;
+        _clampRight = 6.05f;
     }
 
     // Update is called once per frame
@@ -20,7 +26,8 @@ public class Paddle : MonoBehaviour
 
     private void PaddleMovement()
     {
-        _mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = new Vector3(_mouseWorldPosition.x, transform.position.y, 0);
+        _mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition).x;
+        _mousePosition = Mathf.Clamp(_mouseWorldPosition, _clampLeft, _clampRight);
+        transform.position = new Vector3(_mousePosition, transform.position.y, 0);
     }
 }
