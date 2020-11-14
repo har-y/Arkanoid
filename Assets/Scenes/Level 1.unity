@@ -313,6 +313,7 @@ GameObject:
   - component: {fileID: 606685976}
   - component: {fileID: 606685975}
   - component: {fileID: 606685977}
+  - component: {fileID: 606685978}
   m_Layer: 0
   m_Name: Paddle
   m_TagString: Untagged
@@ -401,6 +402,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.03}
   m_Size: {x: 1.0666667, y: 0.2}
   m_Direction: 1
+--- !u!114 &606685978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606685974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03a2e13a7cea7e445920854839e36110, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1056572004
 GameObject:
   m_ObjectHideFlags: 0
