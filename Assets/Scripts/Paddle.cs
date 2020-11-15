@@ -27,6 +27,6 @@ public class Paddle : MonoBehaviour
     {
         _mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition).x;
         _mousePosition = Mathf.Clamp(_mouseWorldPosition, -screenHalfSize.x, screenHalfSize.x);
-        transform.position = new Vector3(_mousePosition, transform.position.y, 0);
+        transform.position = new Vector3(_mousePosition, transform.position.y, 0f);
     }
 }
