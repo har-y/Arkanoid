@@ -9,6 +9,7 @@ public class Ball : MonoBehaviour
 
     private Rigidbody2D _rb;
 
+    private float _ballDirection;
     private float _ballForce;
 
     private bool _hasStarted;
@@ -16,6 +17,7 @@ public class Ball : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _ballDirection = 1f;
         _ballForce = 12f;
 
         _rb = GetComponent<Rigidbody2D>();
@@ -47,7 +49,7 @@ public class Ball : MonoBehaviour
             _hasStarted = true;
 
             _rb.gravityScale = 1;
-            _rb.velocity = new Vector2(0f, _ballForce);
+            _rb.velocity = new Vector2(_ballDirection, _ballForce);
         }
     }
 }
