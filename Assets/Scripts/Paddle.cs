@@ -4,17 +4,26 @@ using UnityEngine;
 
 public class Paddle : MonoBehaviour
 {
+    [SerializeField] private SpriteRenderer _pipe;
     private Vector2 screenHalfSize;
 
     private float _mouseWorldPosition;
     private float _mousePosition;
     private float _paddleWidth;
+    private float _pipeWidth;
+    private float _leftClamp;
+    private float _rightClamp;
 
     // Start is called before the first frame update
     void Start()
     {
-        _paddleWidth = transform.GetComponent<SpriteRenderer>().bounds.size.x / 2;
+        _pipeWidth = _pipe.bounds.size.x;
+        _paddleWidth = GetComponent<SpriteRenderer>().bounds.size.x / 2;
+
         screenHalfSize = new Vector2(Camera.main.aspect * Camera.main.orthographicSize - _paddleWidth, Camera.main.orthographicSize);
+
+        _leftClamp = -(screenHalfSize.x - _pipeWidth);
+        _rightClamp = (screenHalfSize.x - _pipeWidth);
     }
 
     // Update is called once per frame
@@ -26,7 +35,8 @@ public class Paddle : MonoBehaviour
     private void PaddleMovement()
     {
         _mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition).x;
-        _mousePosition = Mathf.Clamp(_mouseWorldPosition, -screenHalfSize.x, screenHalfSize.x);
+        _mousePosition = Mathf.Clamp(_mouseWorldPosition, _leftClamp, _rightClamp);
+
         transform.position = new Vector3(_mousePosition, transform.position.y, 0f);
     }
 }
