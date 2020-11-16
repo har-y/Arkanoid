@@ -17,11 +17,11 @@ public class Ball : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _ballDirection = 1f;
-        _ballForce = 12f;
-
         _rb = GetComponent<Rigidbody2D>();
         _rb.gravityScale = 0;
+
+        _ballDirection = 1f;
+        _ballForce = 12f;
 
         _hasStarted = false;
     }
