@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Paddle : MonoBehaviour
 {
+    [SerializeField] private AudioManager _audioManager;
     [SerializeField] private SpriteRenderer _pipe;
+
     private Vector2 screenHalfSize;
 
     private float _mouseWorldPosition;
@@ -38,5 +40,13 @@ public class Paddle : MonoBehaviour
         _mousePosition = Mathf.Clamp(_mouseWorldPosition, _leftClamp, _rightClamp);
 
         transform.position = new Vector3(_mousePosition, transform.position.y, 0f);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ball")
+        {
+            _audioManager.PlaySound(_audioManager.paddleHitSound);
+        }
     }
 }

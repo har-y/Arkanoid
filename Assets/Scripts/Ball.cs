@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
+    [SerializeField] private AudioManager _audioManager;
     [SerializeField] private Paddle _paddle;
 
     private Rigidbody2D _rb;
@@ -36,7 +37,6 @@ public class Ball : MonoBehaviour
         }
     }
 
-
     private void BallPaddlePosition()
     {
         transform.position = new Vector3(_paddle.transform.position.x, transform.position.y, transform.position.z);
@@ -50,6 +50,8 @@ public class Ball : MonoBehaviour
 
             _rb.gravityScale = 1;
             _rb.velocity = new Vector2(_ballDirection, _ballForce);
+
+            _audioManager.PlaySound(_audioManager.paddleHitSound);
         }
     }
 }
