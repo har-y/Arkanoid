@@ -6,10 +6,13 @@ public class Block : MonoBehaviour
 {
     [SerializeField] private AudioManager _audioManager;
 
+    private Level _blocks;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        _blocks = FindObjectOfType<Level>();
+        _blocks.BlocksCount();
     }
 
     // Update is called once per frame

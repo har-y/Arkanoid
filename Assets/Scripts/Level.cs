@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
+    [SerializeField] private int _blocks;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +16,10 @@ public class Level : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void BlocksCount()
+    {
+        _blocks++;
     }
 }
