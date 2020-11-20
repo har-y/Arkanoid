@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    [Range(0f, 1f)] public float musicVolume = 1f;
-    [Range(0f, 1f)] public float fxVolume = 1f;
+    [Range(0f, 1f)] public float musicVolume = 0.5f;
+    [Range(0f, 1f)] public float fxVolume = 0.5f;
 
     public AudioClip paddleHitSound;
     public AudioClip brickHitSound;

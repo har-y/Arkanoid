@@ -10331,8 +10331,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b0cbffdc4165784c9f4b6697ba775fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicVolume: 1
-  fxVolume: 1
+  musicVolume: 0.5
+  fxVolume: 0.5
   paddleHitSound: {fileID: 8300000, guid: fd6adacf0bbd28041a647be1851e9263, type: 3}
   brickHitSound: {fileID: 8300000, guid: ec260d3535ccfa54da72d90da8aa0a96, type: 3}
   musicEnabled: 1
@@ -14766,6 +14766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06b5a6d1a92a02943b2506322e2706cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _blocks: 0
 --- !u!1001 &2127600694
 PrefabInstance:
   m_ObjectHideFlags: 0

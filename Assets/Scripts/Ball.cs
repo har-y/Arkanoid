@@ -22,7 +22,7 @@ public class Ball : MonoBehaviour
         _rb.gravityScale = 0;
 
         _ballDirection = 1f;
-        _ballForce = 12f;
+        _ballForce = 5f;
 
         _hasStarted = false;
     }
@@ -52,6 +52,25 @@ public class Ball : MonoBehaviour
             _rb.velocity = new Vector2(_ballDirection, _ballForce);
 
             _audioManager.PlaySound(_audioManager.paddleHitSound);
+        }
+    }
+
+    private float HitFactor(Vector2 ballPosition, Vector2 rocketPosition, float paddleWidth)
+    {
+        return (ballPosition.x - rocketPosition.x) / paddleWidth;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "Paddle")
+        {
+            float diffrence = HitFactor(transform.position, collision.transform.position, collision.collider.bounds.size.x);
+            Vector2 direction = new Vector2(diffrence, 1).normalized;
+
+            _ballForce = _ballForce * 1.01f;
+            _rb.velocity = direction * _ballForce;
+
+            Debug.Log(_ballForce);
         }
     }
 }

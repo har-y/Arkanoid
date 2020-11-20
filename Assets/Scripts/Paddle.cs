@@ -42,6 +42,11 @@ public class Paddle : MonoBehaviour
         transform.position = new Vector3(_mousePosition, transform.position.y, 0f);
     }
 
+    private float HitFactor(Vector2 ballPosition, Vector2 rocketPosition, float paddleWidth)
+    {
+        return (ballPosition.x - rocketPosition.x) / paddleWidth;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Ball")
