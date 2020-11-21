@@ -33,9 +33,9 @@ public class Block : MonoBehaviour
             else
             {
                 _audioManager.PlaySound(_audioManager.brickHitSound);
+                _blocks.BlockDestroyed();
+                Destroy(gameObject);
             }
         }
-
-        Destroy(gameObject);
     }
 }

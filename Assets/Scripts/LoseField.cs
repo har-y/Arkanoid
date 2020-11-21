@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LoseField : MonoBehaviour
 {
+    [SerializeField] Level _level;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,7 @@ public class LoseField : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        _level.LoadMenu();
         Debug.Log("game over");
     }
 }
