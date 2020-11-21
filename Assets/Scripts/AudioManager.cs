@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip paddleHitSound;
     public AudioClip brickHitSound;
+    public AudioClip brickIndestructibleHitSound;
 
     public bool musicEnabled = true;
     public bool fxEnabled = true;

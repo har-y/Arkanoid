@@ -5,6 +5,7 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {
     [SerializeField] private AudioManager _audioManager;
+    [SerializeField] private bool _indestructible;
 
     private Level _blocks;
 
@@ -25,7 +26,14 @@ public class Block : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ball")
         {
-            _audioManager.PlaySound(_audioManager.brickHitSound);
+            if (_indestructible)
+            {
+                _audioManager.PlaySound(_audioManager.brickIndestructibleHitSound);
+            }
+            else
+            {
+                _audioManager.PlaySound(_audioManager.brickHitSound);
+            }
         }
 
         Destroy(gameObject);

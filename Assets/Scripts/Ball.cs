@@ -69,8 +69,6 @@ public class Ball : MonoBehaviour
 
             _ballForce = _ballForce * 1.01f;
             _rb.velocity = direction * _ballForce;
-
-            Debug.Log(_ballForce);
         }
     }
 }
