@@ -22,7 +22,7 @@ public class Ball : MonoBehaviour
         _rb.gravityScale = 0;
 
         _ballDirection = 1f;
-        _ballForce = 5f;
+        _ballForce = 15f;
 
         _hasStarted = false;
     }
