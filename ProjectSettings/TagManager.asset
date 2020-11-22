@@ -8,6 +8,8 @@ TagManager:
   - Ball
   - Background
   - Border
+  - Block
+  - Block (Indestructible)
   layers:
   - Default
   - TransparentFX

@@ -7,19 +7,18 @@ public class Block : MonoBehaviour
     [SerializeField] private AudioManager _audioManager;
     [SerializeField] private bool _indestructible;
 
-    private Level _blocks;
+    private LevelManager _level;
 
     // Start is called before the first frame update
     void Start()
     {
-        _blocks = FindObjectOfType<Level>();
-        _blocks.BlocksCount();
+        _level = FindObjectOfType<LevelManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        BlockLoadNextLevel();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -33,9 +32,18 @@ public class Block : MonoBehaviour
             else
             {
                 _audioManager.PlaySound(_audioManager.brickHitSound);
-                _blocks.BlockDestroyed();
                 Destroy(gameObject);
             }
+        }
+    }
+
+    private void BlockLoadNextLevel()
+    {
+        int blocks = GameObject.FindGameObjectsWithTag("Block").Length;
+
+        if (blocks <= 0 && !_level.GetIsMenu())
+        {
+            _level.LoadNextLevel();
         }
     }
 }

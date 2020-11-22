@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Level : MonoBehaviour
+public class LevelManager : MonoBehaviour
 {
-    [SerializeField] private int _blocks;
     [SerializeField] private bool _menu;
 
     private int _currentLevel;
@@ -20,25 +19,14 @@ public class Level : MonoBehaviour
     void Update()
     {
         StartGame();
-        LoadNextLevel();
     }
 
     private void StartGame()
     {
         if (Input.GetMouseButtonDown(0) && _menu)
         {
-            LoadFirstLevel();
+            LoadNextLevel();
         }
-    }
-
-    public void BlocksCount()
-    {
-        _blocks++;
-    }
-
-    public void BlockDestroyed()
-    {
-        _blocks--;
     }
 
     public void QuitGame()
@@ -51,16 +39,13 @@ public class Level : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void LoadFirstLevel()
+    public void LoadNextLevel()
     {
         SceneManager.LoadScene(_currentLevel + 1);
     }
 
-    public void LoadNextLevel()
+    public bool GetIsMenu()
     {
-        if (_blocks <= 0 && !_menu)
-        {
-            SceneManager.LoadScene(_currentLevel + 1);
-        }
+        return _menu;
     }
 }
