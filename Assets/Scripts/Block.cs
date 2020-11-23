@@ -5,14 +5,16 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {
     [SerializeField] private AudioManager _audioManager;
+    [SerializeField] private LevelManager _levelManager;
+    [SerializeField] private ScoreManager _scoreManager;
+
     [SerializeField] private bool _indestructible;
-    
-    private LevelManager _level;
+    [SerializeField] private int _blockPoints;
 
     // Start is called before the first frame update
     void Start()
     {
-        _level = FindObjectOfType<LevelManager>();
+
     }
 
     // Update is called once per frame
@@ -32,6 +34,7 @@ public class Block : MonoBehaviour
             else
             {
                 _audioManager.PlaySound(_audioManager.brickHitSound);
+                _scoreManager.AddScore(_blockPoints);
                 Destroy(gameObject);
             }
         }
@@ -43,7 +46,7 @@ public class Block : MonoBehaviour
 
         if (blocks <= 0)
         {
-            _level.LoadNextLevel();
+            _levelManager.LoadNextLevel();
         }
     }
 

@@ -123,4 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioManager: {fileID: 0}
+  _levelManager: {fileID: 0}
+  _scoreManager: {fileID: 0}
   _indestructible: 0
+  _blockPoints: 80

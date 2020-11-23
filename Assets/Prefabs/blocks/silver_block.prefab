@@ -143,6 +143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ab73bba9146b4a4eb88697d1fc99531, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _paddleAnimation: 0
+  _blockAnimation: 1
+  _block: {fileID: 6281188782337572449}
 --- !u!114 &6281188782337572449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,4 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioManager: {fileID: 0}
+  _levelManager: {fileID: 0}
+  _scoreManager: {fileID: 0}
   _indestructible: 0
+  _blockPoints: 0
