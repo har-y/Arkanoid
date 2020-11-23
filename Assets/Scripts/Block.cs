@@ -41,7 +41,7 @@ public class Block : MonoBehaviour
     {
         int blocks = GameObject.FindGameObjectsWithTag("Block").Length;
 
-        if (blocks <= 0 && !_level.GetIsMenu())
+        if (blocks <= 0)
         {
             _level.LoadNextLevel();
         }

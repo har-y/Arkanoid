@@ -43,9 +43,4 @@ public class LevelManager : MonoBehaviour
     {
         SceneManager.LoadScene(_currentLevel + 1);
     }
-
-    public bool GetIsMenu()
-    {
-        return _menu;
-    }
 }
