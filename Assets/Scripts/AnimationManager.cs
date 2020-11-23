@@ -6,7 +6,9 @@ public class AnimationManager : MonoBehaviour
 {
     [SerializeField] private bool _paddleAnimation;
     [SerializeField] private bool _blockAnimation;
+
     [SerializeField] private Block _block;
+
     private Animator _animator;
 
     // Start is called before the first frame update
