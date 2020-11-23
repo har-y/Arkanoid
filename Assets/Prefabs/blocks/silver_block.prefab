@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 5938051044714422399}
   - component: {fileID: 5938051044714422398}
   - component: {fileID: 7550862746214861403}
+  - component: {fileID: 888210200104676252}
+  - component: {fileID: 5249817796319554759}
   - component: {fileID: 6281188782337572449}
   m_Layer: 0
   m_Name: silver_block
@@ -110,6 +112,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.1573603, y: 1.1421319}
   m_EdgeRadius: 0
+--- !u!95 &888210200104676252
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5938051044714422368}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fac9ab2b094df524a9c745db7944f6a3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5249817796319554759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5938051044714422368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ab73bba9146b4a4eb88697d1fc99531, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6281188782337572449
 MonoBehaviour:
   m_ObjectHideFlags: 0

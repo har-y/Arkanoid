@@ -6,7 +6,7 @@ public class Block : MonoBehaviour
 {
     [SerializeField] private AudioManager _audioManager;
     [SerializeField] private bool _indestructible;
-
+    
     private LevelManager _level;
 
     // Start is called before the first frame update
@@ -45,5 +45,10 @@ public class Block : MonoBehaviour
         {
             _level.LoadNextLevel();
         }
+    }
+
+    public bool GetIndestructible()
+    {
+        return _indestructible;
     }
 }
