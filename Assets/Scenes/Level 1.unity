@@ -14265,6 +14265,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Paddle
       objectReference: {fileID: 0}
+    - target: {fileID: 4763775049938195054, guid: 9249ea20706fd2044a822681a7e3b8ef, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9249ea20706fd2044a822681a7e3b8ef, type: 3}
 --- !u!1001 &7890202351320043501
@@ -14383,6 +14387,10 @@ PrefabInstance:
       propertyPath: _audioManager
       value: 
       objectReference: {fileID: 1641058754}
+    - target: {fileID: 8033554273114274699, guid: c45adcae95c6b304ebe387401f89379a, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 084367ec5beaa5749a0a7a29d91b2de3, type: 2}
     - target: {fileID: 8033554273114274703, guid: c45adcae95c6b304ebe387401f89379a, type: 3}
       propertyPath: m_Name
       value: Ball
