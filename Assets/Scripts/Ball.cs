@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    [SerializeField] private AudioManager _audioManager;
-    [SerializeField] private Paddle _paddle;
+    private AudioManager _audioManager;
 
     private Rigidbody2D _rb;
+
+    private Paddle _paddle;
 
     private float _ballDirection;
     private float _ballForce;
@@ -18,6 +19,9 @@ public class Ball : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _audioManager = GameObject.FindGameObjectWithTag("Audio Manager").GetComponent<AudioManager>();
+        _paddle = GameObject.FindGameObjectWithTag("Paddle").GetComponent<Paddle>();
+
         _rb = GetComponent<Rigidbody2D>();
         _rb.gravityScale = 0;
 

@@ -10,6 +10,11 @@ TagManager:
   - Border
   - Block
   - Block (Indestructible)
+  - Score
+  - High Score
+  - Audio Manager
+  - Level Manager
+  - Score Manager
   layers:
   - Default
   - TransparentFX

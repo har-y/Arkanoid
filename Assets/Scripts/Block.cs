@@ -5,7 +5,6 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {
     [SerializeField] private AudioManager _audioManager;
-    [SerializeField] private LevelManager _levelManager;
     [SerializeField] private ScoreManager _scoreManager;
 
     [SerializeField] private bool _indestructible;
@@ -14,13 +13,14 @@ public class Block : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        _audioManager = GameObject.FindGameObjectWithTag("Audio Manager").GetComponent<AudioManager>();
+        _scoreManager = GameObject.FindGameObjectWithTag("Score Manager").GetComponent<ScoreManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        BlockLoadNextLevel();
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -37,16 +37,6 @@ public class Block : MonoBehaviour
                 _scoreManager.AddScore(_blockPoints);
                 Destroy(gameObject);
             }
-        }
-    }
-
-    private void BlockLoadNextLevel()
-    {
-        int blocks = GameObject.FindGameObjectsWithTag("Block").Length;
-
-        if (blocks <= 0)
-        {
-            _levelManager.LoadNextLevel();
         }
     }
 

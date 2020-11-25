@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Paddle : MonoBehaviour
 {
-    [SerializeField] private AudioManager _audioManager;
     [SerializeField] private SpriteRenderer _pipe;
+
+    private AudioManager _audioManager;
 
     private Vector2 screenHalfSize;
 
@@ -19,6 +20,8 @@ public class Paddle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _audioManager = GameObject.FindGameObjectWithTag("Audio Manager").GetComponent<AudioManager>();
+
         _pipeWidth = _pipe.bounds.size.x;
         _paddleWidth = GetComponent<SpriteRenderer>().bounds.size.x / 2;
 

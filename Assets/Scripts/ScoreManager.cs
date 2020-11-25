@@ -5,13 +5,14 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-    [SerializeField] Text _scoreText;
-    [SerializeField] private int _score;
+    [SerializeField] private static int _score;
+
+    private Text _scoreText;
 
     // Start is called before the first frame update
     void Start()
     {
-        _score = 0;
+        _scoreText = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
         _scoreText.text = _score.ToString();
     }
 
@@ -26,8 +27,25 @@ public class ScoreManager : MonoBehaviour
         _score = _score + _blockPoints;
     }
 
+    public void ResetScore()
+    {
+        _score = 0;
+    }
+
     private void ScoreUpdate()
     {
-        _scoreText.text = _score.ToString();
+        _scoreText.text = TextScore(_score, 10);
+    }
+
+    private string TextScore(int n, int fill)
+    {
+        string score = n.ToString();
+
+        while (score.Length < fill)
+        {
+            score = "0" + score;
+        }
+
+        return score;
     }
 }

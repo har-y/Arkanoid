@@ -6,8 +6,9 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] private bool _menu;
+    [SerializeField] private int _currentLevel;
+    [SerializeField] private int _blocks;
 
-    private int _currentLevel;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,7 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
         StartGame();
+        BlockLoadNextLevel();
     }
 
     private void StartGame()
@@ -39,8 +41,24 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void GameOver()
+    {
+        int lastIndex = SceneManager.sceneCountInBuildSettings - 1;
+        SceneManager.LoadScene(lastIndex);
+    }
+
     public void LoadNextLevel()
     {
         SceneManager.LoadScene(_currentLevel + 1);
+    }
+
+    private void BlockLoadNextLevel()
+    {
+        _blocks = GameObject.FindGameObjectsWithTag("Block").Length;
+
+        if (_blocks <= 0 && !_menu)
+        {
+            LoadNextLevel();
+        }
     }
 }
