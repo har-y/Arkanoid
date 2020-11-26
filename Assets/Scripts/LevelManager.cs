@@ -5,11 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] private bool _menu;
-    [SerializeField] private bool _endGame;
+    [SerializeField] private GameState _currentState;
+
     [SerializeField] private int _currentLevel;
     [SerializeField] private int _lastLevel;
     [SerializeField] private int _blocks;
+
 
     // Start is called before the first frame update
     void Start()
@@ -21,49 +22,91 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckLevel();
+        CheckBlock();
+
         StartGame();
-        BlockLoadNextLevel();
+        LoadNextLevel();
+        LoadRestartLevel();
+    }
+
+    private enum GameState
+    {
+        menu,
+        level,
+        gameOver
     }
 
     private void StartGame()
     {
-        if (Input.GetMouseButtonDown(0) && _menu)
+        if (_currentState == GameState.menu)
         {
-            LoadNextLevel();
+            if (Input.GetMouseButtonDown(0))
+            {
+                NextLevel();
+                _currentState = GameState.level;
+            }
         }
     }
 
-    public void QuitGame()
+    private void QuitGame()
     {
         Application.Quit();
     }
 
-    public void LoadMenu()
+    private void LoadMenu()
     {
         SceneManager.LoadScene(0);
+        _currentState = GameState.menu;
     }
 
     public void GameOver()
     {
-        _endGame = true;
         SceneManager.LoadScene(_lastLevel);
+        _currentState = GameState.gameOver;
     }
 
-    public void LoadNextLevel()
+    private void LoadNextLevel()
     {
-        if (_currentLevel != _lastLevel && !_endGame)
+        if (_currentState == GameState.level)
         {
-            SceneManager.LoadScene(_currentLevel + 1);
+            if (_blocks <= 0)
+            {
+                NextLevel();
+            }
         }
     }
 
-    private void BlockLoadNextLevel()
+    private void NextLevel()
+    {
+        if (_currentState != GameState.menu ||
+            _currentState != GameState.gameOver)
+        {
+            if (_currentLevel != _lastLevel)
+            {
+                SceneManager.LoadScene(_currentLevel + 1);
+            }
+        }
+    }
+
+    private void LoadRestartLevel()
+    {
+        if (_currentState == GameState.gameOver)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                LoadMenu();
+            }
+        }
+    }
+
+    private void CheckLevel()
+    {
+        _currentLevel = SceneManager.GetActiveScene().buildIndex;
+    }
+
+    private void CheckBlock()
     {
         _blocks = GameObject.FindGameObjectsWithTag("Block").Length;
-
-        if ((_blocks <= 0) && (!_menu))
-        {
-            LoadNextLevel();
-        }
     }
 }
