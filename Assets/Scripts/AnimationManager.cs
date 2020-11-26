@@ -13,6 +13,7 @@ public class AnimationManager : MonoBehaviour
     void Start()
     {
         _animator = GetComponent<Animator>();
+        PaddleAnimation();
     }
 
     // Update is called once per frame
