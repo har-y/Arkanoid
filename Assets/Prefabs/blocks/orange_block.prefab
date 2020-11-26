@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4050517737473218445}
   m_Layer: 0
   m_Name: orange_block
-  m_TagString: Block
+  m_TagString: Block (Destructible)
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,7 +123,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioManager: {fileID: 0}
-  _levelManager: {fileID: 0}
   _scoreManager: {fileID: 0}
-  _indestructible: 0
   _blockPoints: 60
+  _blockHitPoints: 1

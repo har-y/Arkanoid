@@ -107,6 +107,6 @@ public class LevelManager : MonoBehaviour
 
     private void CheckBlock()
     {
-        _blocks = GameObject.FindGameObjectsWithTag("Block").Length;
+        _blocks = GameObject.FindGameObjectsWithTag("Block (Destructible)").Length;
     }
 }

@@ -145,7 +145,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _paddleAnimation: 0
   _blockAnimation: 1
-  _block: {fileID: 5899928944377347322}
 --- !u!114 &5899928944377347322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,7 +158,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioManager: {fileID: 0}
-  _levelManager: {fileID: 0}
   _scoreManager: {fileID: 0}
-  _indestructible: 0
   _blockPoints: 0
+  _blockHitPoints: 1

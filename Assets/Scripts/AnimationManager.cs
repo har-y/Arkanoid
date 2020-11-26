@@ -7,8 +7,6 @@ public class AnimationManager : MonoBehaviour
     [SerializeField] private bool _paddleAnimation;
     [SerializeField] private bool _blockAnimation;
 
-    [SerializeField] private Block _block;
-
     private Animator _animator;
 
     // Start is called before the first frame update
@@ -29,11 +27,11 @@ public class AnimationManager : MonoBehaviour
         {
             if (collision.gameObject.tag == "Ball")
             {
-                if (_block.GetIndestructible())
+                if (tag == "Block (Indestructible)")
                 {
                     _animator.SetTrigger("gold_block");
                 }
-                else
+                else if (tag == "Block (Destructible)")
                 {
                     _animator.SetTrigger("silver_block");
                 }

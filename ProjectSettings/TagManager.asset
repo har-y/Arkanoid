@@ -8,13 +8,13 @@ TagManager:
   - Ball
   - Background
   - Border
-  - Block
-  - Block (Indestructible)
   - Score
   - High Score
   - Audio Manager
   - Level Manager
   - Score Manager
+  - Block (Destructible)
+  - Block (Indestructible)
   layers:
   - Default
   - TransparentFX

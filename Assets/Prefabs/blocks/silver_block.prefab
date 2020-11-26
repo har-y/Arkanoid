@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6281188782337572449}
   m_Layer: 0
   m_Name: silver_block
-  m_TagString: Block
+  m_TagString: Block (Destructible)
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,7 +145,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _paddleAnimation: 0
   _blockAnimation: 1
-  _block: {fileID: 6281188782337572449}
 --- !u!114 &6281188782337572449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,7 +158,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioManager: {fileID: 0}
-  _levelManager: {fileID: 0}
   _scoreManager: {fileID: 0}
-  _indestructible: 0
   _blockPoints: 0
+  _blockHitPoints: 2

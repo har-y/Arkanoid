@@ -7,8 +7,8 @@ public class Block : MonoBehaviour
     [SerializeField] private AudioManager _audioManager;
     [SerializeField] private ScoreManager _scoreManager;
 
-    [SerializeField] private bool _indestructible;
     [SerializeField] private int _blockPoints;
+    [SerializeField] private int _blockHitPoints;
 
     // Start is called before the first frame update
     void Start()
@@ -27,21 +27,22 @@ public class Block : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ball")
         {
-            if (_indestructible)
+            if (tag == "Block (Indestructible)")
             {
                 _audioManager.PlaySound(_audioManager.brickIndestructibleHitSound);
             }
-            else
+            else if (tag == "Block (Destructible)")
             {
                 _audioManager.PlaySound(_audioManager.brickHitSound);
                 _scoreManager.AddScore(_blockPoints);
-                Destroy(gameObject);
+
+                _blockHitPoints--;
+
+                if (_blockHitPoints == 0)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
-    }
-
-    public bool GetIndestructible()
-    {
-        return _indestructible;
     }
 }
