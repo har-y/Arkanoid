@@ -6,18 +6,22 @@ using UnityEngine.UI;
 public class CanvasManager : MonoBehaviour
 {
     [SerializeField] private LevelManager _levelManager;
+    [SerializeField] private ScoreManager _scoreManager;
     [SerializeField] private GameObject _gameoverField;
+    [SerializeField] private Text _score;
 
 
     // Start is called before the first frame update
     void Start()
     {
         _levelManager = GameObject.FindGameObjectWithTag("Level Manager").GetComponent<LevelManager>();
+        _scoreManager = GameObject.FindGameObjectWithTag("Score Manager").GetComponent<ScoreManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        Score();
         IsGameOver();
     }
 
@@ -31,5 +35,10 @@ public class CanvasManager : MonoBehaviour
         {
             _gameoverField.SetActive(false);
         }
+    }
+
+    private void Score()
+    {
+        _scoreManager.ScoreUpdate(_score);
     }
 }

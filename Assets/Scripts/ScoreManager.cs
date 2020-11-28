@@ -7,19 +7,16 @@ public class ScoreManager : MonoBehaviour
 {
     [SerializeField] private static int _score;
 
-    private Text _scoreText;
-
     // Start is called before the first frame update
     void Start()
     {
-        _scoreText = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
-        _scoreText.text = _score.ToString();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        ScoreUpdate();
+
     }
 
     public void AddScore(int _blockPoints)
@@ -32,9 +29,9 @@ public class ScoreManager : MonoBehaviour
         _score = 0;
     }
 
-    private void ScoreUpdate()
+    public void ScoreUpdate(Text score)
     {
-        _scoreText.text = TextScore(_score, 10);
+        score.text = TextScore(_score, 10);
     }
 
     private string TextScore(int n, int fill)
@@ -48,6 +45,4 @@ public class ScoreManager : MonoBehaviour
 
         return score;
     }
-
-
 }
