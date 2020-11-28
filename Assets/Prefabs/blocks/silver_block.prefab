@@ -159,5 +159,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioManager: {fileID: 0}
   _scoreManager: {fileID: 0}
-  _blockPoints: 0
+  _blockPoints: 250
   _blockHitPoints: 2

@@ -30,7 +30,7 @@ public class LevelManager : MonoBehaviour
         LoadRestartLevel();
     }
 
-    private enum GameState
+    public enum GameState
     {
         menu,
         level,
@@ -108,5 +108,10 @@ public class LevelManager : MonoBehaviour
     private void CheckBlock()
     {
         _blocks = GameObject.FindGameObjectsWithTag("Block (Destructible)").Length;
+    }
+
+    public GameState CheckState()
+    {
+        return _currentState;
     }
 }

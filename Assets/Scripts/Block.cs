@@ -34,12 +34,11 @@ public class Block : MonoBehaviour
             else if (tag == "Block (Destructible)")
             {
                 _audioManager.PlaySound(_audioManager.brickHitSound);
-                _scoreManager.AddScore(_blockPoints);
-
                 _blockHitPoints--;
 
                 if (_blockHitPoints == 0)
                 {
+                    _scoreManager.AddScore(_blockPoints);
                     Destroy(gameObject);
                 }
             }
