@@ -9,6 +9,7 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] private ScoreManager _scoreManager;
     [SerializeField] private GameObject _gameoverField;
     [SerializeField] private Text _score;
+    [SerializeField] private Text _highScore;
 
 
     // Start is called before the first frame update
@@ -22,6 +23,7 @@ public class CanvasManager : MonoBehaviour
     void Update()
     {
         Score();
+        HighScore();
         IsGameOver();
     }
 
@@ -40,5 +42,10 @@ public class CanvasManager : MonoBehaviour
     private void Score()
     {
         _scoreManager.ScoreUpdate(_score);
+    }
+
+    private void HighScore()
+    {
+        _scoreManager.HighScoreUpdate(_highScore);
     }
 }

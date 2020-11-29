@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
     [SerializeField] private static int _score;
+    [SerializeField] private static int _highScore;
+
+    private string _highScoreKey = "HighScore";
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +19,7 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        ScoreToHighScore();
     }
 
     public void AddScore(int _blockPoints)
@@ -34,6 +37,12 @@ public class ScoreManager : MonoBehaviour
         score.text = TextScore(_score, 10);
     }
 
+    public void HighScoreUpdate(Text highScore)
+    {
+        _highScore = PlayerPrefs.GetInt(_highScoreKey, 0);
+        highScore.text = TextScore(_highScore, 10);
+    }
+
     private string TextScore(int n, int fill)
     {
         string score = n.ToString();
@@ -44,5 +53,14 @@ public class ScoreManager : MonoBehaviour
         }
 
         return score;
+    }
+
+    private void ScoreToHighScore()
+    {
+        if (_score > _highScore)
+        {
+            int tmpValue = _score;
+            PlayerPrefs.SetInt(_highScoreKey, tmpValue);
+        }
     }
 }

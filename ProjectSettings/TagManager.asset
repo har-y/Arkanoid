@@ -8,8 +8,6 @@ TagManager:
   - Ball
   - Background
   - Border
-  - Score
-  - High Score
   - Audio Manager
   - Level Manager
   - Score Manager

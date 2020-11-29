@@ -116,6 +116,7 @@ MonoBehaviour:
   _scoreManager: {fileID: 0}
   _gameoverField: {fileID: 3518846821116549220}
   _score: {fileID: 9032294325037535}
+  _highScore: {fileID: 9032293153832407}
 --- !u!1 &9032292638558746
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,7 +588,7 @@ GameObject:
   - component: {fileID: 9032294325037535}
   m_Layer: 5
   m_Name: Score Counter Text
-  m_TagString: Score
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
